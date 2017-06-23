@@ -1,0 +1,21 @@
+{
+    "memo": "4423bb15eb9f6ec9059495df70d661a1bba1bf6acd212fd43a357ba958b4ed71",
+    "projects": [
+        {
+            "name": "github.com/siebenmann/smtpd",
+            "branch": "master",
+            "revision": "e0fc53b0ac440fd167960c1d5bfe9095387b9893",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "golang.org/x/net",
+            "branch": "release-branch.go1.6",
+            "revision": "62685c2d7ca23c807425dca88b11a3e2323dab41",
+            "packages": [
+                "idna"
+            ]
+        }
+    ]
+}
