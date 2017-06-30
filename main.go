@@ -194,9 +194,9 @@ func (msg *message) send() error {
 		server string
 	)
 	for i := range record {
-		conn, err = iface.Dial("tcp", net.JoinHostPort(record[i].Host, "25"))
+		server = strings.TrimRight(strings.TrimSpace(record[i].Host), ".")
+		conn, err = iface.Dial("tcp", net.JoinHostPort(server, "25"))
 		if err == nil {
-			server = record[i].Host
 			break
 		}
 	}
@@ -210,7 +210,7 @@ func (msg *message) send() error {
 		return err
 	}
 
-	if err := c.Hello(name[0]); err != nil {
+	if err := c.Hello(strings.TrimRight(name[0], ".")); err != nil {
 		return err
 	}
 
@@ -227,7 +227,7 @@ func (msg *message) send() error {
 		return err
 	}
 
-	_, err = fmt.Fprint(w, msg.data + "/r/n")
+	_, err = fmt.Fprint(w, msg.data)
 	if err != nil {
 		return err
 	}
