@@ -1,0 +1,17 @@
+[Unit]
+After=local-fs.target network.target
+Description=SMTP Proxy
+
+[Service]
+User=www-data
+Group=www-data
+Type=simple
+ExecStart=/opt/smtpProxy/smtpProxy
+WorkingDirectory=/opt/smtpProxy
+Restart=on-failure
+RestartSec=60
+TimeoutSec=60
+
+[Install]
+WantedBy=smtpProxy.target
+
